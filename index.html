@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KUMAR GORRILA HOUSE</title>
- 
   <style>
     * {
       margin: 0;
@@ -65,6 +64,7 @@
       background: rgba(200,164,93,0.16);
       box-shadow: 0 0 22px rgba(200,164,93,0.25);
       animation: rise 16s linear infinite;
+      will-change: transform, opacity;
     }
 
     .floating span:nth-child(1) { left: 8%; animation-delay: 0s; }
@@ -94,11 +94,19 @@
       align-items: center;
       justify-content: center;
       background:
-        radial-gradient(circle at center, rgba(200,164,93,0.16), transparent 40%),
+        radial-gradient(circle at center, rgba(200,164,93,0.12), transparent 35%),
         linear-gradient(180deg, #141414, #090909);
       z-index: 9999;
-      animation: splashOut 0.9s ease forwards;
-      animation-delay: 2.4s;
+      opacity: 1;
+      animation: splashOut 0.35s ease forwards;
+      animation-delay: 0.85s;
+      transform: translateZ(0);
+      will-change: opacity;
+    }
+
+    .splash-inner {
+      text-align: center;
+      transform: translateZ(0);
     }
 
     .splash-logo {
@@ -108,65 +116,57 @@
       letter-spacing: clamp(3px, 1vw, 10px);
       text-transform: uppercase;
       color: #fff8ec;
-      text-shadow:
-        0 0 12px rgba(227,201,141,0.45),
-        0 0 26px rgba(200,164,93,0.35),
-        0 0 48px rgba(200,164,93,0.18);
       opacity: 0;
-      transform: translateY(16px) scale(0.94);
-      animation: logoPop 1.1s ease forwards, textGlow 2.2s ease-in-out infinite alternate;
+      transform: translateY(10px);
+      animation: logoPop 0.45s ease forwards;
       text-align: center;
       word-break: break-word;
+      will-change: transform, opacity;
     }
 
     .splash-sub {
-      margin-top: 18px;
+      margin-top: 14px;
       font-size: clamp(0.8rem, 2.8vw, 1rem);
       letter-spacing: 4px;
       text-transform: uppercase;
       color: rgba(227, 201, 141, 0.9);
       opacity: 0;
-      animation: subFade 1s ease forwards;
-      animation-delay: 0.35s;
+      animation: subFade 0.35s ease forwards;
+      animation-delay: 0.12s;
       text-align: center;
+      will-change: transform, opacity;
+    }
+
+    .splash-dev {
+      margin-top: 12px;
+      font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+      letter-spacing: 2px;
+      color: rgba(245, 240, 230, 0.78);
+      opacity: 0;
+      animation: subFade 0.35s ease forwards;
+      animation-delay: 0.22s;
+      text-align: center;
+      will-change: transform, opacity;
     }
 
     @keyframes logoPop {
-      0% { opacity: 0; transform: translateY(16px) scale(0.9); filter: blur(8px); }
-      65% { opacity: 1; transform: translateY(0) scale(1.03); filter: blur(0); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes textGlow {
-      0% {
-        text-shadow:
-          0 0 8px rgba(227,201,141,0.4),
-          0 0 18px rgba(200,164,93,0.28),
-          0 0 34px rgba(200,164,93,0.14);
-      }
-      100% {
-        text-shadow:
-          0 0 14px rgba(255,240,200,0.7),
-          0 0 28px rgba(227,201,141,0.5),
-          0 0 52px rgba(200,164,93,0.25);
-      }
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     @keyframes subFade {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes splashOut {
-      0% { opacity: 1; visibility: visible; }
-      99% { opacity: 0; visibility: hidden; }
-      100% { opacity: 0; visibility: hidden; pointer-events: none; }
+      to { opacity: 0; visibility: hidden; pointer-events: none; }
     }
 
     .hero-wrap {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 28px 24px 60px;
+      padding: 28px 24px 18px;
     }
 
     .hero {
@@ -223,7 +223,6 @@
         0 0 34px rgba(227,201,141,0.14);
       max-width: 10ch;
       word-break: break-word;
-      animation: textGlow 2.8s ease-in-out infinite alternate;
     }
 
     h1 span {
@@ -286,7 +285,6 @@
       color: var(--gold2);
       font-size: 1.2rem;
       margin-bottom: 6px;
-      text-shadow: 0 0 10px rgba(200,164,93,0.4);
     }
 
     .stat p {
@@ -333,7 +331,7 @@
 
     @keyframes blobMove {
       from { transform: translate3d(-2%, -2%, 0) scale(1); }
-      to { transform: translate3d(2%, 2%, 0) scale(1.08); }
+      to { transform: translate3d(2%, 2%, 0) scale(1.05); }
     }
 
     .box {
@@ -355,7 +353,6 @@
       font-family: "Cinzel", serif;
       font-size: clamp(1.5rem, 4vw, 2.1rem);
       color: #fff8ec;
-      text-shadow: 0 0 14px rgba(200,164,93,0.3);
     }
 
     .box p {
@@ -382,7 +379,6 @@
       color: #fff8ec;
       font-size: 0.95rem;
       margin-bottom: 4px;
-      text-shadow: 0 0 10px rgba(227,201,141,0.22);
     }
 
     .feature span {
@@ -404,7 +400,29 @@
       border: 1px solid rgba(200,164,93,0.18);
       color: #f4e7c8;
       font-size: 0.84rem;
-      text-shadow: 0 0 8px rgba(200,164,93,0.25);
+    }
+
+    .footer-brand {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(245,240,230,0.78);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .footer-brand::before,
+    .footer-brand::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(200,164,93,0.2);
+      max-width: 120px;
     }
 
     @media (max-width: 900px) {
@@ -439,6 +457,7 @@
     <div class="splash-inner">
       <div class="splash-logo">KUMAR GORRILA HOUSE</div>
       <div class="splash-sub">Premium Animal Costume Brand</div>
+      <div class="splash-dev">Developed by Aura Developers</div>
     </div>
   </div>
 
@@ -455,6 +474,7 @@
 
           <div class="actions">
             <a href="explore.html" class="btn primary">Explore Collection</a>
+            <a href="about.html" class="btn primary">About Sir</a>
           </div>
 
           <div class="stats">
@@ -510,6 +530,10 @@
         </div>
       </section>
     </section>
+
+    <div class="footer-brand">
+      <span>Developed by Aura Developers</span>
+    </div>
   </main>
 </body>
 </html>
