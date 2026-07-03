@@ -239,6 +239,62 @@
       box-shadow: 0 0 18px rgba(37,211,102,0.25);
     }
 
+    .footer {
+      max-width: 1200px;
+      margin: 10px auto 0;
+      padding: 26px 24px 36px;
+    }
+
+    .footer-box {
+      border-top: 1px solid rgba(200,164,93,0.18);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid rgba(200,164,93,0.25);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 0 18px rgba(200,164,93,0.12);
+    }
+
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-text strong {
+      font-family: "Cinzel", serif;
+      color: #fff8ec;
+      letter-spacing: 1px;
+    }
+
+    .footer-text span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-credit {
+      color: var(--gold2);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
     @keyframes rise {
       to {
         transform: translateY(0);
@@ -274,6 +330,11 @@
 
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      .footer-box {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -413,5 +474,18 @@
       </div>
     </article>
   </section>
+
+  <footer class="footer">
+    <div class="footer-box">
+      <div class="footer-left">
+        <img src="logo.png" alt="Aura Developer Logo" class="footer-logo">
+        <div class="footer-text">
+          <strong>Developed by Aura Developer</strong>
+          <span>Premium costume rental website design.</span>
+        </div>
+      </div>
+      <div class="footer-credit">Aura Developer</div>
+    </div>
+  </footer>
 </body>
 </html>
